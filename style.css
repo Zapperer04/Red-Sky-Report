@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  background-color: black;
+  background-size: cover;
+  color: white;
+  background-image: url("starry.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+nav.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 30px; 
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  animation: spin 10s linear infinite;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-name {
+  font-size: 20px;
+  color: #ff884d;
+  font-weight: bold;
+}
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links {
+  display: flex;
+  gap: 70px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff884d, #ffd480);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffd480;
+}
+
+.nav-links li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Home {
+  min-height: 100vh;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.sketchfab-embed-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.sketchfab-embed-wrapper iframe {
+  max-width: 1200px;
+  width: 100%;
+  height: 700px;
+  border: none;
+}
+
+.home-tagline {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.home-tagline h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.home-tagline p {
+  font-size: 18px;
+  color: #ff884d;
+}
+
+@media (max-width: 768px) {
+  .nav-center {
+    position: static;
+    transform: none;
+    width: 100%;
+    order: 3;
+  }
+
+  nav.navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links {
+    gap: 20px;
+    padding-top: 15px;
+  }
+
+  .sketchfab-embed-wrapper iframe {
+    height: 400px;
+  }
+}
+
+#dashboard {
+  min-height: 100vh;
+  padding: 150px 50px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.data-card {
+  background: rgba(30, 30, 30, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.data-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff884d;
+}
+
+.data-card h3 {
+  font-size: 20px;
+  color: #ff884d;
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+}
+
+.data-card p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.data-card p strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.data-card .main-data {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: auto 0;
+}
+
+@media (max-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #dashboard {
+    padding: 150px 25px 25px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-card h3 {
+    font-size: 18px;
+  }
+
+  .data-card p {
+    font-size: 16px;
+  }
+
+  .data-card .main-data {
+    font-size: 36px;
+  }
+}
+
+#about {
+  background-color: transparent;
+}
+
+footer h5 {
+  color: #ff884d;
+  font-family: "Orbitron", sans-serif;
+}
+
+footer .nav-link,
+footer .text-body-secondary {
+  color: #e0e0e0 !important;
+  font-family: "Orbitron", sans-serif;
+  transition: color 0.2s ease-in-out;
+}
+
+footer .nav-link:hover {
+  color: #ffd480 !important;
+}
